@@ -106,9 +106,9 @@ HTML += f'\n<tr><th>Host Status:</th><td>{args.servicestate}</td></tr>'
 serviceoutput_formatted = args.serviceoutput.replace("\n", "<br>")
 
 # Dann im HTML einbinden:
-HTML += f'\n<tr><th>Host Data:</th><td><a style="color: #0095bf; text-decoration: none;" href="{ICINGA2BASE}/monitoring/host/show?host={args.hostname}">{serviceoutput_formatted}</a></td></tr>'
+HTML += f'\n<tr><th>Host Data:</th><td><a style="color: #0095bf; text-decoration: none;" href="{ICINGA2BASE}/dashboard#!/icingadb/service/history?name=ping4&host.name={args.hostname}">{serviceoutput_formatted}</a></td></tr>'
 
-HTML += f'\n<tr><th>Hostalias:</th><td><a style="color: #0095bf; text-decoration: none;" href="{ICINGA2BASE}/monitoring/host/show?host={args.hostname}">{args.hostname}</a></td></tr>'
+HTML += f'\n<tr><th>Hostalias:</th><td><a style="color: #0095bf; text-decoration: none;" href="{ICINGA2BASE}/dashboard#!/icingadb/service/history?name=ping4&host.name={args.hostname}">{args.hostname}</a></td></tr>'
 HTML += f'\n<tr><th>IP Address:</th><td>{args.hostaddress}</td></tr>'
 HTML += f'\n<tr><th>Event Time:</th><td>{args.longdatetime}</td></tr>'
 
