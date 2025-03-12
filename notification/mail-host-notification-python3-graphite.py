@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #------------
 # Service notification script for Icinga 2
-# Customized for Icinga 2 v2.10.2, InfluxDB 1.7.2 and Graphite
+# Customized for Icinga 2 v2.14 and Icinga Web 2 v2.12, Icingadb 1.2 and Graphite 1.1.10
 # v0.1 by Philipp Wagner
 #
 # https://github.com/mmarodin/icinga2-plugins
@@ -106,9 +106,9 @@ HTML += f'\n<tr><th>Host Status:</th><td>{args.servicestate}</td></tr>'
 serviceoutput_formatted = args.serviceoutput.replace("\n", "<br>")
 
 # Dann im HTML einbinden:
-HTML += f'\n<tr><th>Host Data:</th><td><a style="color: #0095bf; text-decoration: none;" href="{ICINGA2BASE}/dashboard#!/icingadb/service/history?name=ping4&host.name={args.hostname}">{serviceoutput_formatted}</a></td></tr>'
+HTML += f'\n<tr><th>Host Data:</th><td><a style="color: #0095bf; text-decoration: none;" href="{ICINGA2BASE}/dashboard#!/icingadb/service/history?name={args.servicename}&host.name={args.hostname}">{serviceoutput_formatted}</a></td></tr>'
 
-HTML += f'\n<tr><th>Hostalias:</th><td><a style="color: #0095bf; text-decoration: none;" href="{ICINGA2BASE}/dashboard#!/icingadb/service/history?name=ping4&host.name={args.hostname}">{args.hostname}</a></td></tr>'
+HTML += f'\n<tr><th>Hostalias:</th><td><a style="color: #0095bf; text-decoration: none;" href="{ICINGA2BASE}/dashboard#!/icingadb/service/history?name={args.servicename}&host.name={args.hostname}">{args.hostname}</a></td></tr>'
 HTML += f'\n<tr><th>IP Address:</th><td>{args.hostaddress}</td></tr>'
 HTML += f'\n<tr><th>Event Time:</th><td>{args.longdatetime}</td></tr>'
 
